@@ -1,3 +1,8 @@
+<center>
+<img src = "https://cdn.discordapp.com/attachments/1127306479498702848/1166825487662841896/tidal.png?ex=654be5ea&is=653970ea&hm=59dd7980323bd200f3bb3889b8c901df6543dd8949df86a46ae8e6f2dbca841c&">
+</center>
+
+
 # Tidal - A School-Centric Social Media Platform
 
 Tidal is a social media platform designed exclusively for students. It provides a secure and controlled environment for students to interact, share information, and engage in meaningful discussions within their school community.
