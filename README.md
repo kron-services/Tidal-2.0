@@ -26,7 +26,7 @@ Tidal is a social media platform designed exclusively for students. It provides 
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/BSOD232/tidal.git
+   git clone https://github.com/Tidal-Development/tidal-2.0.git
    ```
 
 2. Change directory to the project folder:
