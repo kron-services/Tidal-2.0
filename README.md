@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center", border-radius="25px">
   <img src="https://cdn.discordapp.com/attachments/1127306479498702848/1166825487662841896/tidal.png?ex=654be5ea&is=653970ea&hm=59dd7980323bd200f3bb3889b8c901df6543dd8949df86a46ae8e6f2dbca841c&" width="100px">
 
 # Tidal 
