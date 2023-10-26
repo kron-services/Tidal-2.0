@@ -75,4 +75,7 @@ This project is licensed under the GNU General Public License v3.0.
 ## Contact
 If you have any questions or need assistance, feel free to contact us at contact@tidal.watr16.xyz.
 
-**Tidal** - Your School's Social Hub
+## Thank You To All Contributors
+<a href="https://github.com/Tidal-Development/Tidal-2.0/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Tidal-Development/Tidal-2.0" />
+</a>
