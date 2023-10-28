@@ -13,11 +13,11 @@ exports.AppManager = void 0;
 class AppManager {
     constructor() {
         this.apps = [];
-        // Initialize your app manager with some default apps
+
         this.initDefaultApps();
     }
     initDefaultApps() {
-        // Add your default apps here
+
         const defaultApps = [
             {
                 meta: {
@@ -28,11 +28,11 @@ class AppManager {
                     icon: 'sample-app-1-icon.png',
                 },
                 open: (data) => __awaiter(this, void 0, void 0, function* () {
-                    // Implement the app's behavior here
+
                     console.log('Opening Sample App 1', data);
                 }),
             },
-            // Add more default apps as needed
+
         ];
         this.apps.push(...defaultApps);
     }
@@ -50,9 +50,9 @@ class AppManager {
     }
 }
 exports.AppManager = AppManager;
-// Usage
+
 const appManager = new AppManager();
-// Add a custom app
+
 appManager.addApp({
     meta: {
         name: 'Custom App',
@@ -62,10 +62,10 @@ appManager.addApp({
         icon: 'custom-app-icon.png',
     },
     open: (data) => __awaiter(void 0, void 0, void 0, function* () {
-        // Implement the custom app's behavior here
+
         console.log('Opening Custom App', data);
     }),
 });
-// Open an app
+
 appManager.openApp('sample-app-1', { someData: 'example' });
 appManager.openApp('custom-app', { customData: 'test' });
