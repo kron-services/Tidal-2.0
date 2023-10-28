@@ -79,3 +79,4 @@ If you have any questions or need assistance, feel free to contact us at contact
 <a href="https://github.com/Tidal-Development/Tidal-2.0/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Tidal-Development/Tidal-2.0" />
 </a>
+
