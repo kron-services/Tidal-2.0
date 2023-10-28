@@ -1,11 +1,11 @@
 {
-    "name": "tidal",
-    "description": "",
-    "main": "src/index.ts",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "GNU v3.0"
-  }
+  "name": "tidal",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GNU v3.0"
+}
