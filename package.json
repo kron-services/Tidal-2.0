@@ -1,14 +1,11 @@
 {
-    "name": "your-app-name",
-    "version": "1.0.0",
-    "description": "Your app description",
-    "main": "index.ts",
+    "name": "tidal",
+    "description": "",
+    "main": "src/index.ts",
     "scripts": {
-        "start": "node index.js"
+      "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "Your Name",
-    "license": "MIT",
-    "devDependencies": {
-        "typescript": "^4.9.5"
-    }
-}
+    "keywords": [],
+    "author": "",
+    "license": "GNU v3.0"
+  }
