@@ -1,33 +1,39 @@
 import { App } from './types';
+import PostApp from './apps/test';
 
 export class AppManager {
   private apps: App[] = [];
 
   constructor() {
-    this.initDefaultApps();
+    this.addDefaultApps()
   }
 
-  private initDefaultApps() {
-    const defaultApps: App[] = [
-      {
-        meta: {
-          name: 'Sample App 1',
-          description: 'This is a sample app.',
-          pkg: 'sample-app-1',
-          version: '1.0.0',
-          icon: 'sample-app-1-icon.png',
-        },
-        open: async (data?: any) => {
-          console.log('Opening Sample App 1', data);
-        },
-      },
-    ];
+//   private initDefaultApps() {
+//     const defaultApps: App[] = [
+//       {
+//         meta: {
+//           name: 'Sample App 1',
+//           description: 'This is a sample app.',
+//           pkg: 'sample-app-1',
+//           version: '1.0.0',
+//           icon: 'sample-app-1-icon.png',
+//         },
+//         open: async (data?: any) => {
+//           console.log('Opening Sample App 1', data);
+//         },
+//       },
+//     ];
 
-    this.apps.push(...defaultApps);
-  }
+//     this.apps.push(...defaultApps);
+//   }
 
-  addApp(app: App) {
+  addApp(app: App, isCustom: boolean = false) {
+    app.isCustom = isCustom; // Set the isCustom property
     this.apps.push(app);
+  }
+
+  getApps(): App[] {
+    return this.apps; // Provide a method to get the list of apps
   }
 
   openApp(pkg: string, data?: any) {
@@ -38,7 +44,13 @@ export class AppManager {
       console.error(`App with package name "${pkg}" not found.`);
     }
   }
+
+  private addDefaultApps() {
+    const postApp = PostApp;
+    this.addApp(postApp);
+  }
 }
+
 
 const appManager = new AppManager();
 
@@ -55,5 +67,5 @@ appManager.addApp({
   },
 });
 
-appManager.openApp('sample-app-1', { someData: 'example' });
+// appManager.openApp('sample-app-1', { someData: 'example' });
 appManager.openApp('custom-app', { customData: 'test' });
