@@ -1,4 +1,4 @@
-import { App } from './App';
+import { App } from './types';
 
 export class AppManager {
   private apps: App[] = [];
