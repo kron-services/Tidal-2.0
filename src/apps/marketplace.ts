@@ -1,5 +1,6 @@
 import { createElement, ShoppingBasket  } from 'lucide';
 import { App } from '../types'; 
+import { windowManager } from '../wm';
 
 const marketIcon = createElement(ShoppingBasket); 
 
@@ -16,6 +17,7 @@ const PostApp: App = {
   open: async (data?: any) => {
     // Add your app logic here
     console.log('Opening Marketplace App', data);
+    windowManager.createWindow('Marketplace', 'This is the content of the Marketplace window.');
   },
 };
 

@@ -16,6 +16,8 @@ const PostApp: App = {
   open: async (data?: any) => {
     // Add your app logic here
     console.log('Opening Post App', data);
+    
+
   },
 };
 

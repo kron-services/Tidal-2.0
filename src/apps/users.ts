@@ -1,20 +1,21 @@
-import { createElement, User } from 'lucide';
+import { createElement, Home } from 'lucide';
 import { App } from '../types';
 
-const userIcon = createElement(User); 
+const postIcon = createElement(Home);
 
-userIcon.setAttribute('stroke', '#FFF');
+postIcon.setAttribute('stroke', '#FFF');
 
 const PostApp: App = {
   meta: {
-    name: 'Users App',
-    description: 'An app for viewing all users to friend, or message them..',
-    pkg: 'user-app',
+    name: 'Post App',
+    description: 'An app for creating and managing posts.',
+    pkg: 'post-app',
     version: '1.0.0',
-    icon: userIcon,
+    icon: postIcon,
   },
   open: async (data?: any) => {
-    console.log('Opening User App', data);
+    // Add your app logic here
+    console.log('Opening Post App', data);
   },
 };
 
