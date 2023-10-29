@@ -18,5 +18,8 @@
     "vite": "^4.5.0",
     "vite-plugin-dynamic-import": "^1.5.0",
     "vite-plugin-node-polyfills": "^0.15.0"
+  },
+  "dependencies": {
+    "lucide": "^0.290.0"
   }
 }

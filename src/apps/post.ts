@@ -1,4 +1,9 @@
-import { App } from '../types'; // Adjust the path as needed
+import { createElement, Home  } from 'lucide';
+import { App } from '../types'; 
+
+const postIcon = createElement(Home); 
+
+postIcon.setAttribute('stroke', '#FFF');
 
 const PostApp: App = {
   meta: {
@@ -6,7 +11,7 @@ const PostApp: App = {
     description: 'An app for creating and managing posts.',
     pkg: 'post-app',
     version: '1.0.0',
-    icon: 'post-app-icon.png',
+    icon: postIcon,
   },
   open: async (data?: any) => {
     // Add your app logic here

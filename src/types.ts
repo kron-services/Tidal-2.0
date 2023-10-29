@@ -4,7 +4,7 @@ export interface App {
     description: string;
     pkg: string;
     version: string;
-    icon: string;
+    icon: SVGElement;
   };
   open: (data?: any) => Promise<void>;
   isCustom?: boolean; // Add this property

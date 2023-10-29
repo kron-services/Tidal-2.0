@@ -1,5 +1,7 @@
 import { App } from './types';
-import PostApp from './apps/test';
+import PostApp from './apps/post';
+import UserApp from './apps/users';
+import Marketplace from './apps/marketplace';
 
 export class AppManager {
   private apps: App[] = [];
@@ -46,26 +48,27 @@ export class AppManager {
   }
 
   private addDefaultApps() {
-    const postApp = PostApp;
-    this.addApp(postApp);
+    this.addApp(PostApp);
+    this.addApp(UserApp);
+    this.addApp(Marketplace);
   }
 }
 
 
 const appManager = new AppManager();
 
-appManager.addApp({
-  meta: {
-    name: 'Custom App',
-    description: 'This is a custom app.',
-    pkg: 'custom-app',
-    version: '1.0.0',
-    icon: 'custom-app-icon.png',
-  },
-  open: async (data?: any) => {
-    console.log('Opening Custom App', data);
-  },
-});
+// appManager.addApp({
+//   meta: {
+//     name: 'Custom App',
+//     description: 'This is a custom app.',
+//     pkg: 'custom-app',
+//     version: '1.0.0',
+//     icon: 'custom-app-icon.png',
+//   },
+//   open: async (data?: any) => {
+//     console.log('Opening Custom App', data);
+//   },
+// });
 
-// appManager.openApp('sample-app-1', { someData: 'example' });
-appManager.openApp('custom-app', { customData: 'test' });
+// // appManager.openApp('sample-app-1', { someData: 'example' });
+// appManager.openApp('custom-app', { customData: 'test' });
