@@ -13,6 +13,7 @@ const PostApp: App = {
     version: '1.0.0',
     icon: postIcon,
   },
+  isOpen: false,
   open: async (data?: any) => {
     // Add your app logic here
     console.log('Opening Post App', data);

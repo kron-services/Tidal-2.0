@@ -6,6 +6,7 @@ export interface App {
     version: string;
     icon: SVGElement;
   };
+  isOpen: boolean;
   open: (data?: any) => Promise<void>;
   isCustom?: boolean; // Add this property
 }
