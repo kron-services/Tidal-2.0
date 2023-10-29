@@ -65,4 +65,61 @@ export class WindowManager {
   }
 }
 
+function enableDragging(elem, container) {
+  let x = 0, y = 0, dragging = false;
+  const header = elem.querySelector('.window-header');
+
+  header?.addEventListener('mousedown', startDrag);
+
+  function startDrag(e) {
+    e.preventDefault();
+    stopDrag();
+
+    x = e.clientX - elem.getBoundingClientRect().left;
+    y = e.clientY - elem.getBoundingClientRect().top;
+    dragging = true;
+
+    document.onmouseup = endDrag;
+    document.onmousemove = handleDrag;
+  }
+
+  function handleDrag(e) {
+    e.preventDefault();
+
+    if (!dragging) return;
+
+    const rect = container.getBoundingClientRect();
+    const left = e.clientX - rect.left - x;
+    const top = e.clientY - rect.top - y;
+
+    if (left >= 0 && left + elem.offsetWidth <= rect.width) {
+      elem.style.left = `${left}px`;
+    }
+
+    if (top >= 0 && top + elem.offsetHeight <= rect.height) {
+      elem.style.top = `${top}px`;
+    }
+  }
+
+  function endDrag() {
+    dragging = false;
+    document.onmouseup = null;
+    document.onmousemove = null;
+    container.onmouseleave = null;
+  }
+
+  function stopDrag() {
+    endDrag();
+    container.onmouseenter = null;
+  }
+}
+
+
+
 export const windowManager = new WindowManager();
+
+
+
+
+
+
