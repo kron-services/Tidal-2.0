@@ -1,6 +1,7 @@
 import { createIcons, X, Maximize, Minimize } from 'lucide';
 
-function enableDragging(elem: HTMLDivElement, container: HTMLDivElement) {
+
+function enableDragging(elem: HTMLDivElement) {
   let x = 0, y = 0, dragging = false;
   const header = elem.querySelector('.window-header') as HTMLElement;
 
@@ -23,29 +24,21 @@ function enableDragging(elem: HTMLDivElement, container: HTMLDivElement) {
 
     if (!dragging) return;
 
-    const rect = container.getBoundingClientRect();
-    const left = e.clientX - rect.left - x;
-    const top = e.clientY - rect.top - y;
+    const left = e.clientX - x;
+    const top = e.clientY - y;
 
-    if (left >= 0 && left + elem.offsetWidth <= rect.width) {
-      elem.style.left = `${left}px`;
-    }
-
-    if (top >= 0 && top + elem.offsetHeight <= rect.height) {
-      elem.style.top = `${top}px`;
-    }
+    elem.style.left = `${left}px`;
+    elem.style.top = `${top}px`;
   }
 
   function endDrag() {
     dragging = false;
     document.onmouseup = null;
     document.onmousemove = null;
-    container.onmouseleave = null;
   }
 
   function stopDrag() {
     endDrag();
-    container.onmouseenter = null;
   }
 }
 
@@ -83,7 +76,7 @@ export class WindowManager {
   
 
       const header = windowDiv.querySelector('.window-header');
-      enableDragging(windowDiv, this.container);
+      enableDragging(windowDiv);
 
       this.container.appendChild(windowDiv);
       this.windows[title] = windowDiv;
