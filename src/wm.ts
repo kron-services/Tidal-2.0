@@ -1,5 +1,55 @@
 import { createIcons, X, Maximize, Minimize } from 'lucide';
 
+function enableDragging(elem: HTMLDivElement, container: HTMLDivElement) {
+  let x = 0, y = 0, dragging = false;
+  const header = elem.querySelector('.window-header') as HTMLElement;
+
+  header?.addEventListener('mousedown', startDrag);
+
+  function startDrag(e: MouseEvent) {
+    e.preventDefault();
+    stopDrag();
+
+    x = e.clientX - elem.getBoundingClientRect().left;
+    y = e.clientY - elem.getBoundingClientRect().top;
+    dragging = true;
+
+    document.onmouseup = endDrag;
+    document.onmousemove = handleDrag;
+  }
+
+  function handleDrag(e: MouseEvent) {
+    e.preventDefault();
+
+    if (!dragging) return;
+
+    const rect = container.getBoundingClientRect();
+    const left = e.clientX - rect.left - x;
+    const top = e.clientY - rect.top - y;
+
+    if (left >= 0 && left + elem.offsetWidth <= rect.width) {
+      elem.style.left = `${left}px`;
+    }
+
+    if (top >= 0 && top + elem.offsetHeight <= rect.height) {
+      elem.style.top = `${top}px`;
+    }
+  }
+
+  function endDrag() {
+    dragging = false;
+    document.onmouseup = null;
+    document.onmousemove = null;
+    container.onmouseleave = null;
+  }
+
+  function stopDrag() {
+    endDrag();
+    container.onmouseenter = null;
+  }
+}
+
+
 export class WindowManager {
   private windows: Record<string, HTMLDivElement> = {};
   private container: HTMLDivElement;
@@ -18,7 +68,7 @@ export class WindowManager {
       }
   
       windowDiv.innerHTML = `
-          <div class="p-2 rounded-lg h-10">
+          <div class="p-2 rounded-lg h-10 window-header">
             <div class="flex items-center w-full justify-center">
               <div class="text-md">${title}</div>
             </div>
@@ -31,6 +81,10 @@ export class WindowManager {
           <div class="p-2 bg-[#2A323C] h-[calc(100%-2.5rem)] rounded-lg">${content}</div>
       `;
   
+
+      const header = windowDiv.querySelector('.window-header');
+      enableDragging(windowDiv, this.container);
+
       this.container.appendChild(windowDiv);
       this.windows[title] = windowDiv;
 
@@ -65,61 +119,4 @@ export class WindowManager {
   }
 }
 
-function enableDragging(elem, container) {
-  let x = 0, y = 0, dragging = false;
-  const header = elem.querySelector('.window-header');
-
-  header?.addEventListener('mousedown', startDrag);
-
-  function startDrag(e) {
-    e.preventDefault();
-    stopDrag();
-
-    x = e.clientX - elem.getBoundingClientRect().left;
-    y = e.clientY - elem.getBoundingClientRect().top;
-    dragging = true;
-
-    document.onmouseup = endDrag;
-    document.onmousemove = handleDrag;
-  }
-
-  function handleDrag(e) {
-    e.preventDefault();
-
-    if (!dragging) return;
-
-    const rect = container.getBoundingClientRect();
-    const left = e.clientX - rect.left - x;
-    const top = e.clientY - rect.top - y;
-
-    if (left >= 0 && left + elem.offsetWidth <= rect.width) {
-      elem.style.left = `${left}px`;
-    }
-
-    if (top >= 0 && top + elem.offsetHeight <= rect.height) {
-      elem.style.top = `${top}px`;
-    }
-  }
-
-  function endDrag() {
-    dragging = false;
-    document.onmouseup = null;
-    document.onmousemove = null;
-    container.onmouseleave = null;
-  }
-
-  function stopDrag() {
-    endDrag();
-    container.onmouseenter = null;
-  }
-}
-
-
-
 export const windowManager = new WindowManager();
-
-
-
-
-
-
